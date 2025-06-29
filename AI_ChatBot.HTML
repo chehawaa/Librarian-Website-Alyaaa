@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI ChatBot - Syed Rahman’s Library</title>
+  <style>
+    :root {
+      --primary-color: #B00020;
+      --background-color: #000000;
+      --text-color: #ffffff;
+      --card-bg: #111;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      margin: 0;
+      color: var(--primary-color);
+      font-size: 2.5rem;
+    }
+    .language-toggle {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .language-toggle button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 0 5px;
+    }
+    .language-toggle button:hover {
+      background-color: #870015;
+    }
+    .chatbot-wrapper {
+      display: flex;
+      gap: 20px;
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(176, 0, 32, 0.6);
+      padding: 20px;
+      max-width: 700px;
+      width: 100%;
+      align-items: center;
+    }
+    .chatbot-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .baymax-gif {
+      width: 160px;
+      height: auto;
+      background-color: var(--background-color);
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(176, 0, 32, 0.7);
+    }
+    .clue {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 12px;
+      font-style: italic;
+      text-align: center;
+      min-height: 70px;
+    }
+    .chatbox {
+      width: 100%;
+      height: 300px;
+      background: #222;
+      border-radius: 12px;
+      padding: 15px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--text-color);
+    }
+    .chatbox p {
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 75%;
+    }
+    .user-msg {
+      background-color: var(--primary-color);
+      color: white;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .bot-msg {
+      background-color: #333;
+      color: #ddd;
+      align-self: flex-start;
+    }
+    .input-area {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+    }
+    .input-area input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      background-color: #111;
+      color: var(--text-color);
+    }
+    .input-area button {
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .input-area button:hover {
+      background-color: #870015;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI ChatBot</h1>
+  <p id="header-subtitle">Ask me about Career Development in Secretarial & Administrative Fields!</p>
+</header>
+
+<div class="language-toggle">
+  <button id="btn-en" aria-label="Switch to English">English</button>
+  <button id="btn-bm" aria-label="Switch to Bahasa Melayu">Bahasa Melayu</button>
+</div>
+
+<div class="chatbot-wrapper">
+  <div class="chatbot-container">
+    <div class="clue" id="clue-text">
+      Try questions like: <br/>
+      <em>"What skills do I need for secretarial work?"</em> | 
+      <em>"How can I improve my time management?"</em> | 
+      <em>"What certifications help in administration?"</em>
+    </div>
+    <div class="chatbox" id="chatbox"></div>
+    <form id="chatForm" class="input-area" onsubmit="return sendMessage()">
+      <input type="text" id="userInput" placeholder="Type your question here..." autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <img
+    src="https://i.ibb.co/7JrmchH9/A-hello-from-Baymax-in-honor-of-World-Hello-Day.gif"
+    alt="Baymax waving"
+    class="baymax-gif"
+  />
+</div>
+
+<script>
+  const languageData = {
+    en: {
+      clue: `Try questions like: <br/>
+             <em>"What skills do I need for secretarial work?"</em> | 
+             <em>"How can I improve my time management?"</em> | 
+             <em>"What certifications help in administration?"</em>`,
+      placeholder: "Type your question here...",
+      headerSubtitle: "Ask me about Career Development in Secretarial & Administrative Fields!",
+      noAnswer: "Sorry, I don't understand. Try asking something else or use the clue above.",
+      knowledgeBase: [
+        {
+          questionKeywords: ['skills', 'secretarial', 'needed', 'skills needed', 'skills for secretarial'],
+          answer: "Key skills include communication, time management, proficiency in office technologies like Microsoft Office and Google Workspace, organization, and problem-solving."
+        },
+        {
+          questionKeywords: ['technology', 'effect', 'impact', 'tools', 'modern tools', 'software'],
+          answer: "Modern technology speeds up document management, digital communication, and remote collaboration, improving administrative efficiency."
+        },
+        {
+          questionKeywords: ['training', 'professional development', 'pelatihan'],
+          answer: "Professional training helps enhance technical and soft skills, update knowledge, and open promotion opportunities."
+        },
+        {
+          questionKeywords: ['time management', 'manage time', 'manajemen waktu', 'improve time'],
+          answer: "Use techniques like Pomodoro, make priority lists, and use digital calendars to improve time management."
+        },
+        {
+          questionKeywords: ['challenge', 'problems', 'difficulties'],
+          answer: "Main challenges are rapid technology adaptation, high workload, and lack of clear career development opportunities."
+        },
+        {
+          questionKeywords: ['networking', 'connect', 'mentor', 'professional network'],
+          answer: "Networking helps expand professional connections, open new job opportunities, and gain valuable information."
+        },
+        {
+          questionKeywords: ['communication', 'interpersonal', 'soft skills'],
+          answer: "Interpersonal communication skills facilitate coordination and build positive working relationships."
+        },
+        {
+          questionKeywords: ['organizational change', 'adapt', 'change'],
+          answer: "Being flexible and willing to learn new things is vital to handle organizational changes."
+        },
+        {
+          questionKeywords: ['education', 'certification', 'degree', 'sertifikasi'],
+          answer: "Formal education and professional certifications add credibility and demonstrate specific expertise."
+        },
+        {
+          questionKeywords: ['career strategy', 'plan', 'development plan'],
+          answer: "Create a career plan, attend training, build professional networks, and find mentors as long-term development strategies."
+        }
+      ]
+    },
+    bm: {
+      clue: `Cuba tanya soalan seperti: <br/>
+             <em>"Apa kemahiran yang saya perlukan untuk kerja setiausaha?"</em> | 
+             <em>"Bagaimana saya boleh tingkatkan pengurusan masa?"</em> | 
+             <em>"Sijil apa yang membantu dalam bidang pentadbiran?"</em>`,
+      placeholder: "Taip soalan anda di sini...",
+      headerSubtitle: "Tanya saya tentang Pembangunan Kerjaya dalam Bidang Setiausaha & Pentadbiran!",
+      noAnswer: "Maaf, saya tidak faham. Cuba tanya soalan lain atau gunakan clue di atas.",
+      knowledgeBase: [
+        {
+          questionKeywords: ['skills', 'secretarial', 'needed', 'skills
