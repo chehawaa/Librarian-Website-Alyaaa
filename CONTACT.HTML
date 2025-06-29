@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Syed Rahman’s Library</title>
+  <style>
+    :root {
+      --primary-color: #B00020;
+      --background-color: #000;
+      --text-color: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    #langToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: var(--primary-color);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #111;
+      border-left: 5px solid var(--primary-color);
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="pageTitle">Contact Us</h1>
+    <button id="langToggle" onclick="toggleLanguage()">BM</button>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="programs.html">Programs</a>
+    <a href="resume.html">Resume</a>
+    <a href="learning.html">Learning</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2 id="formTitle">Get in Touch</h2>
+    <p id="formDesc">Please fill out the form below and we will get back to you soon.</p>
+    <form>
+      <label for="name" id="labelName">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email" id="labelEmail">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message" id="labelMessage">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit" id="submitBtn">Send</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Syed Rahman’s Library. All rights reserved.</p>
+  </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    let currentLang = "en";
+
+    function toggleLanguage() {
+      if (currentLang === "en") {
+        // Tukar ke BM
+        document.getElementById("pageTitle").textContent = "Hubungi Kami";
+        document.getElementById("formTitle").textContent = "Hubungi Kami";
+        document.getElementById("formDesc").textContent = "Sila isi borang di bawah dan kami akan hubungi anda secepat mungkin.";
+        document.getElementById("labelName").textContent = "Nama";
+        document.getElementById("labelEmail").textContent = "E-mel";
+        document.getElementById("labelMessage").textContent = "Mesej";
+        document.getElementById("submitBtn").textContent = "Hantar";
+        document.getElementById("langToggle").textContent = "EN";
+        currentLang = "my";
+      } else {
+        // Tukar ke EN
+        document.getElementById("pageTitle").textContent = "Contact Us";
+        document.getElementById("formTitle").textContent = "Get in Touch";
+        document.getElementById("formDesc").textContent = "Please fill out the form below and we will get back to you soon.";
+        document.getElementById("labelName").textContent = "Name";
+        document.getElementById("labelEmail").textContent = "Email";
+        document.getElementById("labelMessage").textContent = "Message";
+        document.getElementById("submitBtn").textContent = "Send";
+        document.getElementById("langToggle").textContent = "BM";
+        currentLang = "en";
+      }
+    }
+  </script>
+
+</body>
+</html>
