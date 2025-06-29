@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modul Interaktif: Kuiz & Kemajuan</title>
+  <style>
+  <a href="index.html">Home</a>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    header {
+      background: #900;
+      color: gold;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-top: 10px;
+    }
+    .lang-toggle button {
+      padding: 5px 12px;
+      margin-left: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .quiz-container {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .progress {
+      margin-top: 20px;
+    }
+    .progress-bar {
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+      margin-top: 5px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #b30000;
+      width: 0%;
+      color: white;
+      text-align: center;
+      line-height: 20px;
+      transition: width 0.3s ease;
+    }
+    .btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #b30000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Modul Kuiz Interaktif</h1>
+</header>
+
+<div class="lang-toggle">
+  <label>Bahasa / Language:</label>
+  <button onclick="switchLang('ms')">BM</button>
+  <button onclick="switchLang('en')">EN</button>
+</div>
+
+<div class="quiz-container" id="quiz-container">
+  <!-- Kuiz dimuatkan secara dinamik -->
+</div>
+
+<div class="progress">
+  <h3 id="progress-label">Kemajuan Anda</h3>
+  <div class="progress-bar">
+    <div class="progress-bar-fill" id="progress-fill">0%</div>
+  </div>
+</div>
+
+<script>
+  const quizzes = {
+    ms: [
+      {
+        question: "Apakah fungsi utama Microsoft Word?",
+        options: ["Membina jadual", "Menulis dokumen", "Menyimpan fail", "Menyunting gambar"],
+        answer: 1
+      },
+      {
+        question: "Google Sheets digunakan untuk?",
+        options: ["Pembentangan", "E-mel", "Pengiraan dan carta", "Menyimpan gambar"],
+        answer: 2
+      },
+      {
+        question: "Apakah alat yang sesuai untuk reka bentuk grafik?",
+        options: ["Zoom", "Notepad", "Canva", "Excel"],
+        answer: 2
+      }
+    ],
+    en: [
+      {
+        question: "What is the main function of Microsoft Word?",
+        options: ["Build tables", "Write documents", "Store files", "Edit images"],
+        answer: 1
+      },
+      {
+        question: "Google Sheets is used for?",
+        options: ["Presentations", "Emailing", "Calculations and charts", "Storing images"],
+        answer: 2
+      },
+      {
+        question: "Which tool is suitable for graphic design?",
+        options: ["Zoom", "Notepad", "Canva", "Excel"],
+        answer: 2
+      }
+    ]
+  };
+
+  let currentLang = 'ms';
+  let currentQuiz = quizzes[currentLang];
+  let userAnswers = JSON.parse(localStorage.getItem("quizAnswers")) || {};
+  let progress = 0;
+
+  function switchLang(lang) {
+    currentLang = lang;
+    currentQuiz = quizzes[lang];
+    document.getElementById("title").textContent = lang === "ms" ? "Modul Kuiz Interaktif" : "Interactive Quiz Module";
+    document.getElementById("progress-label").textContent = lang === "ms" ? "Kemajuan Anda" : "Your Progress";
+    renderQuiz();
+  }
+
+  function renderQuiz() {
+    const container = document.getElementById("quiz-container");
+    container.innerHTML = "";
+    currentQuiz.forEach((q, index) => {
+      const saved = userAnswers[currentLang]?.[index];
+      const div = document.createElement("div");
+      div.className = "question";
+      const h3 = document.createElement("h3");
+      h3.textContent = `Soalan ${index + 1}: ${q.question}`;
+      div.appendChild(h3);
+
+      q.options.forEach((opt, i) => {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q" + index;
+        input.value = i;
+        if (saved !== undefined && saved == i) input.checked = true;
+        input.onclick = () => saveAnswer(index, i);
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        div.appendChild(label);
+      });
+
+      container.appendChild(div);
+    });
+    updateProgress();
+  }
+
+  function saveAnswer(questionIndex, selectedIndex) {
+    if (!userAnswers[currentLang]) userAnswers[currentLang] = {};
+    userAnswers[currentLang][questionIndex] = selectedIndex;
+    localStorage.setItem("quizAnswers", JSON.stringify(userAnswers));
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const answered = Object.keys(userAnswers[currentLang] || {}).length;
+    const total = currentQuiz.length;
+    const percent = Math.round((answered / total) * 100);
+    const progressBar = document.getElementById("progress-fill");
+    progressBar.style.width = percent + "%";
+    progressBar.textContent = percent + "%";
+  }
+
+  // Initial render
+  renderQuiz();
+</script>
+
+</body>
+</html>
