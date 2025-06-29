@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syed Rahman’s Library</title>
+  <style>
+    :root {
+      --primary-color: #B00020;
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      text-align: center;
+      padding: 30px 20px 20px;
+      position: relative;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 10px;
+      height: 120px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    }
+
+    #langToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #B00020;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #1a1a1a;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #111;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary-color);
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 15px;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://ibb.co/YBcKCKFQ" target="_blank">
+      <img src="https://i.ibb.co/GQW1614p/Whats-App-Image-2025-04-15-at-14-58-05-0976c585.jpg" alt="Library Logo" class="logo">
+    </a>
+    <h1 id="mainTitle">Syed Rahman’s Library</h1>
+    <p id="mainDesc">Supporting Career Development in Secretarial & Administrative Fields</p>
+    <button id="langToggle" onclick="toggleLanguage()">BM</button>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="programs.HTML">Programs</a>
+    <a href="contact.HTML">Contact</a>
+    <a href= "about_me.HTML">About Me</a>
+    <a href= "AI_ChatBot.HTML">AI AI_ChatBot</a>
+  </nav>
+
+  <div class="hero">
+    <h2 id="heroTitle">Your Career Toolkit Starts Here</h2>
+    <p id="heroText">Learn skills. Access resources. Connect with mentors.</p>
+  </div>
+
+  <div class="content">
+    <div class="card">
+      <h3 id="card1Title">🎓 Digital Learning Modules</h3>
+      <a href="digital_learning.HTML" style="color: #FFD700;">Go to Learning</a>
+      <p id="card1Text">Learn Microsoft Office, Google Workspace, and modern admin tools through guided tutorials.</p>
+    </div>
+
+    <div class="card">
+      <h3 id="card2Title">📝 Resume Resources</h3>
+      <a href="resume_resources.HTML" style="color: #FFD700;">Go to Resume</a>
+      <p id="card2Text">Download templates, cover letter examples, and interview question guides.</p>
+    </div>
+
+    <div class="card">
+      <h3 id="card3Title">🤝 Mentorship & Events</h3>
+      <a href="mentorship&events.HTML" style="colour: #FFD700;">Go to Mentorship & Events</a>
+      <p id="card3Text">Get support from industry professionals and join monthly webinars and workshops.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Syed Rahman’s Library. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentLang = "en";
+
+    function toggleLanguage() {
+      if (currentLang === "en") {
+        document.getElementById("mainTitle").textContent = "Perpustakaan Syed Rahman";
+        document.getElementById("mainDesc").textContent = "Menyokong Pembangunan Kerjaya dalam Bidang Kesetiausahaan";
+        document.getElementById("heroTitle").textContent = "Peralatan Kerjaya Anda Bermula Di Sini";
+        document.getElementById("heroText").textContent = "Pelajari kemahiran, akses sumber, dan hubungi mentor.";
+        document.getElementById("card1Title").textContent = "🎓 Modul Pembelajaran Digital";
+        document.getElementById("card1Text").textContent = "Belajar Microsoft Office, Google Workspace dan alat pentadbiran moden dengan tutorial berpandu.";
+        document.getElementById("card2Title").textContent = "📝 Sumber Resume";
+        document.getElementById("card2Text").textContent = "Muat turun templat, contoh surat iringan dan panduan soalan temuduga.";
+        document.getElementById("card3Title").textContent = "🤝 Bimbingan & Acara";
+        document.getElementById("card3Text").textContent = "Dapatkan sokongan dari profesional industri dan sertai webinar bulanan.";
+        document.getElementById("langToggle").textContent = "EN";
+        currentLang = "my";
+      } else {
+        document.getElementById("mainTitle").textContent = "Syed Rahman’s Library";
+        document.getElementById("mainDesc").textContent = "Supporting Career Development in Secretarial & Administrative Fields";
+        document.getElementById("heroTitle").textContent = "Your Career Toolkit Starts Here";
+        document.getElementById("heroText").textContent = "Learn skills. Access resources. Connect with mentors.";
+        document.getElementById("card1Title").textContent = "🎓 Digital Learning Modules";
+        document.getElementById("card1Text").textContent = "Learn Microsoft Office, Google Workspace, and modern admin tools through guided tutorials.";
+        document.getElementById("card2Title").textContent = "📝 Resume Resources";
+        document.getElementById("card2Text").textContent = "Download templates, cover letter examples, and interview question guides.";
+        document.getElementById("card3Title").textContent = "🤝 Mentorship & Events";
+        document.getElementById("card3Text").textContent = "Get support from industry professionals and join monthly webinars and workshops.";
+        document.getElementById("langToggle").textContent = "BM";
+        currentLang = "en";
+      }
+    }
+  </script>
+
+</body>
+</html>
