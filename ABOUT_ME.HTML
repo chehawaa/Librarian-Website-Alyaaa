@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - Syed Rahman’s Library</title>
+  <style>
+    :root {
+      --primary-color: #B00020;
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    #langToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #B00020;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      background-color: #111;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary-color);
+      box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+    }
+
+    .profile-wrapper {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-wrapper img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    .profile-wrapper h2 {
+      margin-top: 15px;
+      font-size: 24px;
+    }
+
+    .profile-wrapper p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #111;
+      color: var(--text-color);
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="pageTitle">About Me</h1>
+  <button id="langToggle" onclick="toggleLanguage()">BM</button>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="programs.html">Programs</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+  <div class="profile-wrapper">
+    <a href="https://ibb.co/vvqMVNKW" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.ibb.co/6JwqrKfS/passport-picture.jpg" alt="passport-picture" />
+    </a>
+    <h2 id="profileName">SYARIFAH ALYAA BINTI SYDE AB RAHAMAD</h2>
+    <p id="profilePosition">Senior Librarian, Syed Rahman’s Library</p>
+    <p id="profileTagline"><em>Supporting Career Development in Secretarial & Administrative Fields</em></p>
+  </div>
+
+  <div class="section">
+    <h2 id="introTitle">👩‍💼 Supporting Career Development</h2>
+    <p id="introText">
+      As a dedicated librarian, I specialize in guiding job seekers and students through professional growth. 
+      My role includes providing resources for resume writing, office interview preparation, and workplace professionalism.
+      I also organize workshops and webinars on topics such as office etiquette and using modern technology in administration.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 id="skillsTitle">💡 Skills</h2>
+    <ul id="skillsList">
+      <li>Career coaching & resume support</li>
+      <li>Workshop & event planning</li>
+      <li>Library management & digital cataloguing</li>
+      <li>Office software: Microsoft Office, Google Workspace</li>
+      <li>Communication & presentation</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 id="experienceTitle">📘 Experience</h2>
+    <ul id="experienceList">
+      <li>Senior Librarian, Syed Rahman’s Library (2015–Present)</li>
+      <li>Conducted 50+ workshops on workplace readiness</li>
+      <li>Helped 200+ students build resumes and job profiles</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 id="educationTitle">🎓 Education</h2>
+    <ul id="educationList">
+      <li>Bachelor’s Degree in Library and Information Science</li>
+      <li>Certified Career Development Facilitator (CCDF)</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Syed Rahman’s Library. All rights reserved.</p>
+</footer>
+
+<script>
+  let currentLang = "en";
+
+  function toggleLanguage() {
+    if (currentLang === "en") {
+      document.getElementById("pageTitle").textContent = "Tentang Saya";
+      document.getElementById("profileName").textContent = "SYARIFAH ALYAA BINTI SYDE AB RAHAMAD";
+      document.getElementById("profilePosition").textContent = "Pustakawan Kanan, Perpustakaan Syed Rahman";
+      document.getElementById("profileTagline").innerHTML = "<em>Menyokong Pembangunan Kerjaya dalam Bidang Kesetiausahaan & Pentadbiran</em>";
+      document.getElementById("introTitle").textContent = "👩‍💼 Menyokong Pembangunan Kerjaya";
+      document.getElementById("introText").textContent = "Sebagai pustakawan yang berdedikasi, saya membimbing pencari kerja dan pelajar dalam pembangunan profesional. Peranan saya termasuk menyediakan sumber untuk penulisan resume, persediaan temuduga pejabat, dan etika di tempat kerja. Saya juga menganjurkan bengkel dan webinar mengenai topik seperti etika pejabat dan penggunaan teknologi moden dalam pentadbiran.";
+      document.getElementById("skillsTitle").textContent = "💡 Kemahiran";
+      document.getElementById("skillsList").innerHTML = `
+        <li>Coaching kerjaya & bantuan resume</li>
+        <li>Perancangan bengkel & acara</li>
+        <li>Pengurusan perpustakaan & katalog digital</li>
+        <li>Perisian pejabat: Microsoft Office, Google Workspace</li>
+        <li>Komunikasi & penyampaian</li>
+      `;
+      document.getElementById("experienceTitle").textContent = "📘 Pengalaman";
+      document.getElementById("experienceList").innerHTML = `
+        <li>Pustakawan Kanan, Perpustakaan Syed Rahman (2015–Kini)</li>
+        <li>Menganjurkan lebih 50 bengkel berkaitan kerjaya</li>
+        <li>Telah membantu 200+ pelajar membina resume dan profil kerjaya</li>
+      `;
+      document.getElementById("educationTitle").textContent = "🎓 Pendidikan";
+      document.getElementById("educationList").innerHTML = `
+        <li>Ijazah Sarjana Muda dalam Sains Perpustakaan dan Maklumat</li>
+        <li>Sijil Fasilitator Pembangunan Kerjaya (CCDF)</li>
+      `;
+      document.getElementById("langToggle").textContent = "EN";
+      currentLang = "my";
+    } else {
+      document.getElementById("pageTitle").textContent = "About Me";
+      document.getElementById("profileName").textContent = "SYARIFAH ALYAA BINTI SYDE AB RAHAMAD";
+      document.getElementById("profilePosition").textContent = "Senior Librarian, Syed Rahman’s Library";
+      document.getElementById("profileTagline").innerHTML = "<em>Supporting Career Development in Secretarial & Administrative Fields</em>";
+      document.getElementById("introTitle").textContent = "👩‍💼 Supporting Career Development";
+      document.getElementById("introText").textContent = "As a dedicated librarian, I specialize in guiding job seekers and students through professional growth. My role includes providing resources for resume writing, office interview preparation, and workplace professionalism. I also organize workshops and webinars on topics such as office etiquette and using modern technology in administration.";
+      document.getElementById("skillsTitle").textContent = "💡 Skills";
+      document.getElementById("skillsList").innerHTML = `
+        <li>Career coaching & resume support</li>
+        <li>Workshop & event planning</li>
+        <li>Library management & digital cataloguing</li>
+        <li>Office software: Microsoft Office, Google Workspace</li>
+        <li>Communication & presentation</li>
+      `;
+      document.getElementById("experienceTitle").textContent = "📘 Experience";
+      document.getElementById("experienceList").innerHTML = `
+        <li>Senior Librarian, Syed Rahman’s Library (2015–Present)</li>
+        <li>Conducted 50+ workshops on workplace readiness</li>
+        <li>Helped 200+ students build resumes and job profiles</li>
+      `;
+      document.getElementById("educationTitle").textContent = "🎓 Education";
+      document.getElementById("educationList").innerHTML = `
+        <li>Bachelor’s Degree in Library and Information Science</li>
+        <li>Certified Career Development Facilitator (CCDF)</li>
+      `;
+      document.getElementById("langToggle").textContent = "BM";
+      currentLang = "en";
+    }
+  }
+</script>
+
+</body>
+</html>
