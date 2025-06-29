@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Contoh & Panduan</title>
+  <style>
+  <a href="index.html">Home</a>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    header {
+      background-color: #900;
+      color: gold;
+      padding: 20px;
+      text-align: center;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin: 10px 0;
+    }
+    .lang-toggle button {
+      padding: 8px 15px;
+      margin-left: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #b30000;
+    }
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Contoh Resume & Panduan Penulisan</h1>
+</header>
+
+<div class="lang-toggle">
+  <label>Bahasa: </label>
+  <button onclick="switchLanguage('ms')">BM</button>
+  <button onclick="switchLanguage('en')">EN</button>
+</div>
+
+<!-- Resume Pelajar -->
+<div class="section">
+  <h2 id="student-title">🧑‍🎓 Contoh Resume Pelajar</h2>
+  <div id="student-bm">
+    <pre>
+Nama: Aisyah Binti Ahmad
+Alamat: No. 23, Jalan Mawar, 43000 Kajang, Selangor
+Telefon: 012-3456789
+Emel: aisyah@example.com
+
+OBJEKTIF:
+Saya seorang pelajar tahun akhir dalam jurusan Sains Komputer yang bersemangat dan berdedikasi. Berminat untuk mendapatkan pengalaman industri dalam bidang pembangunan perisian.
+
+PENDIDIKAN:
+Universiti Teknologi Malaysia (UTM)
+Ijazah Sarjana Muda Sains Komputer (Kepujian)
+2021 – Sekarang (Tahun akhir)
+
+KEMAHIRAN:
+- Pengaturcaraan: Python, Java
+- Microsoft Office (Word, Excel, PowerPoint)
+- Komunikasi & kerja berpasukan
+
+PENGALAMAN:
+Pembantu Penyelidik (Latihan Industri), UTM
+Jun 2023 – Ogos 2023
+- Menyumbang kepada pembangunan aplikasi pengurusan data
+- Bekerjasama dengan penyelia untuk menjalankan ujian sistem
+
+RUJUKAN:
+Dr. Faridah Mohd Noor – Pensyarah Kanan UTM
+    </pre>
+  </div>
+  <div id="student-en" style="display: none;">
+    <pre>
+Name: Aisyah Binti Ahmad
+Address: No. 23, Jalan Mawar, 43000 Kajang, Selangor
+Phone: 012-3456789
+Email: aisyah@example.com
+
+OBJECTIVE:
+I am a final-year Computer Science student who is passionate and dedicated. Seeking industry experience in software development.
+
+EDUCATION:
+Universiti Teknologi Malaysia (UTM)
+Bachelor of Computer Science (Hons)
+2021 – Present (Final Year)
+
+SKILLS:
+- Programming: Python, Java
+- Microsoft Office (Word, Excel, PowerPoint)
+- Communication & teamwork
+
+EXPERIENCE:
+Research Assistant (Internship), UTM
+June 2023 – August 2023
+- Contributed to data management app development
+- Worked with supervisor on system testing
+
+REFERENCES:
+Dr. Faridah Mohd Noor – Senior Lecturer at UTM
+    </pre>
+  </div>
+</div>
+
+<!-- Resume Pekerja -->
+<div class="section">
+  <h2 id="worker-title">👨‍💼 Contoh Resume Pekerja</h2>
+  <div id="worker-bm">
+    <pre>
+Nama: Mohd Rizal Bin Hassan
+Alamat: No. 88, Jalan Kempas, 80000 Johor Bahru, Johor
+Telefon: 013-8765432
+Emel: rizal.hassan@example.com
+
+OBJEKTIF:
+Seorang eksekutif pemasaran berpengalaman dengan lebih 5 tahun dalam industri FMCG. Ingin meneroka peluang baharu dalam strategi digital dan pengurusan produk.
+
+PENGALAMAN KERJA:
+Eksekutif Pemasaran, Nestlé Malaysia
+Jan 2020 – Sekarang
+- Merancang dan melaksanakan kempen promosi produk
+- Menguruskan bajet pemasaran tahunan sebanyak RM500K
+- Meningkatkan jualan sebanyak 25% dalam tempoh dua tahun
+
+PENDIDIKAN:
+Universiti Putra Malaysia (UPM)
+Ijazah Sarjana Muda Pemasaran
+2012 – 2016
+
+KEMAHIRAN:
+- Adobe Illustrator, Canva
+- Strategi Digital & SEO
+- Kemahiran interpersonal & pemikiran kritikal
+
+RUJUKAN:
+Pn. Sharifah Zainab – Pengurus Besar Pemasaran, Nestlé
+    </pre>
+  </div>
+  <div id="worker-en" style="display: none;">
+    <pre>
+Name: Mohd Rizal Bin Hassan
+Address: No. 88, Jalan Kempas, 80000 Johor Bahru, Johor
+Phone: 013-8765432
+Email: rizal.hassan@example.com
+
+OBJECTIVE:
+Experienced marketing executive with over 5 years in the FMCG industry. Looking for new opportunities in digital strategy and product management.
+
+WORK EXPERIENCE:
+Marketing Executive, Nestlé Malaysia
+Jan 2020 – Present
+- Planned and executed product promotional campaigns
+- Managed RM500K annual marketing budget
+- Boosted sales by 25% over two years
+
+EDUCATION:
+Universiti Putra Malaysia (UPM)
+Bachelor of Marketing
+2012 – 2016
+
+SKILLS:
+- Adobe Illustrator, Canva
+- Digital Strategy & SEO
+- Interpersonal skills & critical thinking
+
+REFERENCES:
+Ms. Sharifah Zainab – General Marketing Manager, Nestlé
+    </pre>
+  </div>
+</div>
+
+<!-- Panduan Resume -->
+<div class="section">
+  <h2 id="guide-title">🛠️ Panduan Menulis Resume</h2>
+  <div id="guide-bm">
+    <ul>
+      <li>Pilih format yang ringkas dan profesional (Times New Roman / Arial, saiz 11–12)</li>
+      <li>Tulis objektif atau ringkasan profil</li>
+      <li>Senaraikan latar belakang pendidikan</li>
+      <li>Masukkan pengalaman kerja atau latihan industri</li>
+      <li>Nyatakan kemahiran teknikal dan insaniah</li>
+      <li>Tambahkan rujukan profesional</li>
+      <li>Semak dan pastikan tiada kesalahan ejaan atau tatabahasa</li>
+    </ul>
+  </div>
+  <div id="guide-en" style="display: none;">
+    <ul>
+      <li>Choose a clean, professional format (Times New Roman / Arial, font size 11–12)</li>
+      <li>Write an objective or profile summary</li>
+      <li>List educational background</li>
+      <li>Include work or internship experience</li>
+      <li>Highlight technical and soft skills</li>
+      <li>Add professional references</li>
+      <li>Proofread for any spelling or grammar errors</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function switchLanguage(lang) {
+    const showBM = lang === 'ms';
+
+    // Toggle each section
+    document.getElementById("student-bm").style.display = showBM ? "block" : "none";
+    document.getElementById("student-en").style.display = showBM ? "none" : "block";
+
+    document.getElementById("worker-bm").style.display = showBM ? "block" : "none";
+    document.getElementById("worker-en").style.display = showBM ? "none" : "block";
+
+    document.getElementById("guide-bm").style.display = showBM ? "block" : "none";
+    document.getElementById("guide-en").style.display = showBM ? "none" : "block";
+
+    // Optional: Change titles
+    document.getElementById("student-title").textContent = showBM ? "🧑‍🎓 Contoh Resume Pelajar" : "🧑‍🎓 Student Resume Example";
+    document.getElementById("worker-title").textContent = showBM ? "👨‍💼 Contoh Resume Pekerja" : "👨‍💼 Worker Resume Example";
+    document.getElementById("guide-title").textContent = showBM ? "🛠️ Panduan Menulis Resume" : "🛠️ Resume Writing Guide";
+  }
+</script>
+
+</body>
+</html>
