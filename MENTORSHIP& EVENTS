@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentorship & Events</title>
+  <style>
+    body {
+      background-color: #121212;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+      flex-direction: column;
+    }
+
+    .language-switcher {
+      margin-bottom: 2rem;
+    }
+
+    .language-switcher button {
+      background-color: #b30000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .language-switcher button:hover,
+    .language-switcher button.active {
+      background-color: #8c0000;
+    }
+
+    .mentorship-section {
+      background-color: #1a1a1a;
+      color: #f5d300; /* gold-ish text */
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(255, 213, 0, 0.4);
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .mentorship-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .mentorship-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .mentorship-section strong {
+      color: #f5d300;
+    }
+
+    .cta-button {
+      background-color: #b30000; /* deep red */
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background-color: #8c0000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="language-switcher">
+    <button id="btn-en" class="active">English</button>
+    <button id="btn-id">Bahasa Indonesia</button>
+  </div>
+
+  <section class="mentorship-section">
+    <h2 id="title">🤝 Mentorship & Events</h2>
+    <p id="description">
+      <strong>Explore. Connect. Grow.</strong><br />
+      As a student, your path forward starts here. Get matched with mentors who’ve walked your road — and want to see you succeed. Join monthly webinars and workshops made for curious minds like yours.
+    </p>
+    <a href="/events" class="cta-button" id="cta">🚀 Join an Event</a>
+  </section>
+
+  <script>
+    const texts = {
+      en: {
+        title: "🤝 Mentorship & Events",
+        description: `<strong>Explore. Connect. Grow.</strong><br />
+          As a student, your path forward starts here. Get matched with mentors who’ve walked your road — and want to see you succeed. Join monthly webinars and workshops made for curious minds like yours.`,
+        cta: "🚀 Join an Event",
+      },
+      id: {
+        title: "🤝 Mentoring & Acara",
+        description: `<strong>Jelajahi. Terhubung. Tumbuh.</strong><br />
+          Sebagai pelajar, jalanmu ke depan dimulai di sini. Temukan mentor yang pernah melalui jalurmu — dan ingin melihatmu sukses. Ikuti webinar dan workshop bulanan yang dibuat untuk pikiran ingin tahu sepertimu.`,
+        cta: "🚀 Ikuti Acara",
+      }
+    };
+<a href="index.html">Home</a>
+    const btnEn = document.getElementById("btn-en");
+    const btnId = document.getElementById("btn-id");
+    const title = document.getElementById("title");
+    const description = document.getElementById("description");
+    const cta = document.getElementById("cta");
+
+    function setLanguage(lang) {
+      title.innerHTML = texts[lang].title;
+      description.innerHTML = texts[lang].description;
+      cta.textContent = texts[lang].cta;
+
+      if (lang === 'en') {
+        btnEn.classList.add('active');
+        btnId.classList.remove('active');
+      } else {
+        btnId.classList.add('active');
+        btnEn.classList.remove('active');
+      }
+    }
+
+    btnEn.addEventListener('click', () => setLanguage('en'));
+    btnId.addEventListener('click', () => setLanguage('id'));
+  </script>
+
+</body>
+</html>
